@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode="light" />
       <BrowserRouter>
-        <Box bg="white" minHeight="100vh">
+        <Box bg="#ebebeb" minHeight="100vh">
           <App />
         </Box>
 

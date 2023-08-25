@@ -13,7 +13,7 @@ export function Navbar() {
       align="center"
       justify="center"
       top="0"
-      height="100px"
+      height={"15vh"}
       backgroundColor="cyan.600"
     >
       <Flex maxW="container.lg" direction="row" gap="1rem">

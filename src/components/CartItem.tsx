@@ -1,10 +1,7 @@
 import { Button, Flex, Text, Image } from "@chakra-ui/react";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
-// ... (rest of the imports)
-
-
-
+import { ApiResponseData } from "./ShoppingCart"; // Import the ApiResponseData type
 
 type CartItemProps = {
   id: number | string;
@@ -31,11 +28,11 @@ export function CartItem({ id, quantity, item }: CartItemProps) {
       </Flex>
 
       <Flex alignItems="center">
-       
+
         <Text mx="2" fontSize="xl">
           {quantity}
         </Text>
-      
+
       </Flex>
 
       <Button variant="danger" size="sm" onClick={() => removeFromCart(Number(id))}>

@@ -8,7 +8,7 @@ function AboutSection() {
     AOS.init()
   }, [])
   return (
-    <Flex height={"75vh"} minWidth={"100vw"} background={"red"} align="center" justify="center">
+    <Flex height={"76.5vh"} minWidth={"full"} background={"red"} align="center" justify="center">
       <Container maxW="container.lg">
         <Flex direction={{ base: "column", lg: "row" }} alignItems={{ lg: "center" }}>
           <Box

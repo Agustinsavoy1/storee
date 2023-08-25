@@ -1,4 +1,4 @@
-import { Button, Box, Image, Flex, Text, Center } from "@chakra-ui/react";
+import { Button, Box, Image, Flex, Text } from "@chakra-ui/react";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 

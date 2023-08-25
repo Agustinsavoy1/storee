@@ -21,13 +21,12 @@ import {
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { CartItem } from "./CartItem";
-import { Form } from "react-router-dom";
 
 type ShoppingCartProps = {
   isOpen: boolean;
 };
 
-type ApiResponseData = {
+export type ApiResponseData = {
   id: number | string;
   nombre: string;
   precio: number;
@@ -40,7 +39,6 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const { closeCart, cartItems } = useShoppingCart();
   const [parsedData, setParsedData] = useState<ApiResponseData[]>([]);
 
-
   const [formData, setFormData] = useState({
     name: "",
     address: "",
@@ -48,10 +46,8 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     comments: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
-
-    // Check if the input is a checkbox and update the value accordingly
     const inputValue = type === "checkbox" ? checked : value;
 
     setFormData((prevData) => ({
@@ -60,51 +56,46 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     }));
   };
 
-
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      // Fetch data from the API
       const response: AxiosResponse = await axios.get(
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWfThl1orWa1Uxn6Mzr_qn2ezQSosCGLIRA84JkTrczj_zHkYExNITCDo9x8s9GXc942WM--JPh67A/pub?output=csv",
         {
-          responseType: "blob",
+          responseType: "text",
         }
       );
 
-      // Parse the data using PapaParse
       const results = await parseData(response.data);
       setParsedData(results);
     } catch (error) {
-      console.error("Error fetching data:");
+      console.error("Error fetching data:", error);
     }
   };
 
-  const parseData = (data) => {
+  const parseData = (data: string): Promise<ApiResponseData[]> => {
     return new Promise<ApiResponseData[]>((resolve, reject) => {
       Papa.parse(data, {
         header: true,
         complete: (results) => {
-          const parsedData = results.data;
+          const parsedData = results.data as ApiResponseData[];
           resolve(parsedData);
         },
-        error: (error) => {
+        error: (error: Error) => {
           reject(error.message);
         },
       });
     });
   };
 
-  // Create a variable to store the cart items that match the ids in parsedData
   const matchedCartItems = cartItems.map((cartItem) => {
     const item = parsedData.find((i) => i.id === cartItem.id);
     return { ...cartItem, item };
   });
 
-  // Calculate the total price based on matched cart items
   const totalPrice = matchedCartItems.reduce((total, cartItem) => {
     const item = cartItem.item;
     return total + (item?.precio || 0) * cartItem.quantity;
@@ -117,8 +108,6 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
 
   const clientData = `* ${formData.name} x ${formData.address}\n* Checkbox Value: ${formData.checkboxValue ? "Yes" : "No"
     }\n* Comments: ${formData.comments}\n`;
-
-  console.log(formData)
 
   return (
     <Drawer isOpen={isOpen} onClose={closeCart} placement="right">
@@ -206,13 +195,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             </Stack>
           )}
 
-          {step === 3 && (
-            <Stack>
-              <Form>
-                <h1>step3</h1>
-              </Form>
-            </Stack>
-          )}
+
         </DrawerBody>
 
         <DrawerFooter>

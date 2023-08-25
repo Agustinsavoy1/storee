@@ -33,23 +33,28 @@ const Slider = () => {
         };
     }, []);
     return (
-        <Center h="full" bg="gray.100">
-            <Box>
+        <Center h={{ base: "50vh", md: "70vh" }} bg="gray.100">
+            <Box w={{ base: "90%", md: "80%" }} position="relative">
                 <img
                     src={images[currentIndex]}
                     alt={`Image ${currentIndex + 1}`}
-                    style={{ maxWidth: "100%" }}
+                    style={{ width: "100%", height: "auto" }}
                 />
-                <Box position={"absolute"} top={"30%"} mt={4}>
-                    <Flex marginLeft={"5rem"} justify={"space-between"} align={"center"} width={"90vw"}>
-                        <Button onClick={goToPrev} mr={2} variant="outline">
-                            Previous
-                        </Button>
-                        <Button onClick={goToNext} variant="outline">
-                            Next
-                        </Button>
-                    </Flex>
-                </Box>
+                <Flex
+                    position="absolute"
+                    bottom="1rem"
+                    left="0"
+                    right="0"
+                    justify="space-between"
+                    px={{ base: "1rem", md: "2rem" }}
+                >
+                    <Button onClick={goToPrev} variant="outline">
+                        Previous
+                    </Button>
+                    <Button onClick={goToNext} variant="outline">
+                        Next
+                    </Button>
+                </Flex>
             </Box>
         </Center>
     )

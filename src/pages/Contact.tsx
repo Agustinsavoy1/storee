@@ -1,134 +1,161 @@
 import {
-    Box,
     Container,
+    Flex,
+    Box,
     Heading,
     Text,
-    Grid,
-    GridItem,
-    Input,
-    Textarea,
+    IconButton,
     Button,
-} from "@chakra-ui/react";
+    VStack,
+    HStack,
+    Wrap,
+    WrapItem,
+    FormControl,
+    FormLabel,
+    Input,
+    InputGroup,
+    InputLeftElement,
+    Textarea,
+} from '@chakra-ui/react'
+import {
+    MdPhone,
+    MdEmail,
+    MdLocationOn,
+    MdFacebook,
+    MdOutlineEmail,
+} from 'react-icons/md'
+import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs'
 
-function Contact() {
+export default function Contact() {
     return (
-        <Box id="contact" className="contact">
-            <Container maxW="container.lg">
-                <Box data-aos="fade-up">
-                    <Heading size="lg" textAlign="center" mb={4}>
-                        Contacto
-                    </Heading>
-                    <Text textAlign="center">Contactanos</Text>
+        <Container bg={"red"} minH={"full"} maxW="full" minW={"full"} centerContent overflow="hidden">
+            <Flex >
+                <Box
+                    bg="#02054B"
+                    color="white"
+                    borderRadius="lg"
+                    m={{ base: 4, sm: 4, md: 16, lg: 10 }}
+                    p={{ base: 5, sm: 5, md: 5, lg: 10 }}>
+                    <Box p={2} display={"flex"}
+                        flexDirection={"row-reverse"}>
+                        <Wrap direction={{ base: "column", sm: "column", md: "row" }} justify={{ base: "center" }} spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
+                            <WrapItem >
+                                <Box  >
+                                    <Heading>Contacto</Heading>
+                                    <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
+                                        Envianos tu consulta
+                                    </Text>
+                                    <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
+                                        <VStack pl={0} spacing={3} alignItems="flex-start">
+                                            <Button
+                                                size="md"
+                                                height="48px"
+                                                width="200px"
+                                                variant="ghost"
+                                                color="#DCE2FF"
+                                                _hover={{ border: '2px solid #1C6FEB' }}
+                                                leftIcon={<MdPhone color="#1970F1" size="20px" />}>
+                                                +54 9 11 3333 3333
+                                            </Button>
+                                            <Button
+                                                size="md"
+                                                height="48px"
+                                                width="200px"
+                                                variant="ghost"
+                                                color="#DCE2FF"
+                                                _hover={{ border: '2px solid #1C6FEB' }}
+                                                leftIcon={<MdEmail color="#1970F1" size="20px" />}>
+                                                losincas@losincas.com
+                                            </Button>
+                                            <Button
+                                                size="md"
+                                                height="48px"
+                                                width="200px"
+                                                variant="ghost"
+                                                color="#DCE2FF"
+                                                _hover={{ border: '2px solid #1C6FEB' }}
+                                                leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
+                                                Buenos Aires, Argentina.
+                                            </Button>
+                                        </VStack>
+                                    </Box>
+                                    <HStack
+                                        mt={{ lg: 10, md: 10 }}
+                                        spacing={5}
+                                        px={5}
+                                        alignItems="flex-start">
+                                        <IconButton
+                                            aria-label="facebook"
+                                            variant="ghost"
+                                            size="lg"
+                                            isRound={true}
+                                            _hover={{ bg: '#0D74FF' }}
+                                            icon={<MdFacebook size="28px" />}
+                                        />
+                                        <IconButton
+                                            aria-label="github"
+                                            variant="ghost"
+                                            size="lg"
+                                            isRound={true}
+                                            _hover={{ bg: '#0D74FF' }}
+                                            icon={<BsGithub size="28px" />}
+                                        />
+                                        <IconButton
+                                            aria-label="discord"
+                                            variant="ghost"
+                                            size="lg"
+                                            isRound={true}
+                                            _hover={{ bg: '#0D74FF' }}
+                                            icon={<BsDiscord size="28px" />}
+                                        />
+                                    </HStack>
+                                </Box>
+                            </WrapItem>
+                            <WrapItem>
+                                <Box bg="white" borderRadius="lg">
+                                    <Box m={8} color="#0B0E3F">
+                                        <VStack spacing={5}>
+                                            <FormControl id="name">
+                                                <FormLabel>Your Name</FormLabel>
+                                                <InputGroup borderColor="#E0E1E7">
+                                                    <InputLeftElement pointerEvents="none">
+                                                        <BsPerson color="gray.800" />
+                                                    </InputLeftElement>
+                                                    <Input type="text" size="md" />
+                                                </InputGroup>
+                                            </FormControl>
+                                            <FormControl id="name">
+                                                <FormLabel>Mail</FormLabel>
+                                                <InputGroup borderColor="#E0E1E7">
+                                                    <InputLeftElement pointerEvents="none">
+                                                        <MdOutlineEmail color="gray.800" />
+                                                    </InputLeftElement>
+                                                    <Input type="text" size="md" />
+                                                </InputGroup>
+                                            </FormControl>
+                                            <FormControl id="name">
+                                                <FormLabel>Message</FormLabel>
+                                                <Textarea
+                                                    borderColor="gray.300"
+                                                    _hover={{
+                                                        borderRadius: 'gray.300',
+                                                    }}
+                                                    placeholder="message"
+                                                />
+                                            </FormControl>
+                                            <FormControl id="name" float="right">
+                                                <Button variant="solid" bg="#0D74FF" color="white" _hover={{}}>
+                                                    Send Message
+                                                </Button>
+                                            </FormControl>
+                                        </VStack>
+                                    </Box>
+                                </Box>
+                            </WrapItem>
+                        </Wrap>
+                    </Box>
                 </Box>
-
-                <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={4}>
-                    <GridItem>
-                        <Grid templateColumns="repeat(2, 1fr)" gap={4}>
-                            <GridItem>
-                                <Box textAlign={{ base: "center", lg: "start" }}>
-                                    <i className="bi bi-geo-alt"></i>
-                                    <Heading size="md" mt={2}>
-                                        Dirección
-                                    </Heading>
-                                    <Text>
-                                        Av. Vergara 670,<br />
-                                        Buenos Aires, Argentina
-                                    </Text>
-                                </Box>
-                            </GridItem>
-                            <GridItem>
-                                <Box textAlign={{ base: "center", lg: "start" }}>
-                                    <i className="bi bi-telephone"></i>
-                                    <Heading size="md" mt={2}>
-                                        Llamanos
-                                    </Heading>
-                                    <Text>
-                                        +54 9 11 1111 1111<br />
-                                        +54 9 22 2222 2222
-                                    </Text>
-                                </Box>
-                            </GridItem>
-                            <GridItem>
-                                <Box textAlign={{ base: "center", lg: "start" }}>
-                                    <i className="bi bi-envelope"></i>
-                                    <Heading size="md" mt={2}>
-                                        Email
-                                    </Heading>
-                                    <Text>
-                                        info@losincas.com<br />
-                                        contact@losincas.com
-                                    </Text>
-                                </Box>
-                            </GridItem>
-                            <GridItem>
-                                <Box textAlign={{ base: "center", lg: "start" }}>
-                                    <i className="bi bi-clock"></i>
-                                    <Heading size="md" mt={2}>
-                                        Horarios
-                                    </Heading>
-                                    <Text>
-                                        Lunes - Sabado<br />
-                                        08:00 a 20:00
-                                    </Text>
-                                </Box>
-                            </GridItem>
-                        </Grid>
-                    </GridItem>
-                    <GridItem>
-                        <form
-                            action="/assets/js/app.js"
-                            id="formulario"
-                            className="php-email-form"
-                        >
-                            <Grid templateColumns="1fr" gap={4}>
-                                <GridItem>
-                                    <Input
-                                        type="text"
-                                        name="name"
-                                        placeholder="Nombre"
-                                        required
-                                    />
-                                </GridItem>
-                                <GridItem>
-                                    <Input
-                                        type="email"
-                                        name="email"
-                                        placeholder="Email"
-                                        required
-                                    />
-                                </GridItem>
-                                <GridItem>
-                                    <Input
-                                        type="text"
-                                        name="subject"
-                                        placeholder="Asunto"
-                                        required
-                                    />
-                                </GridItem>
-                                <GridItem>
-                                    <Textarea
-                                        name="message"
-                                        rows="6"
-                                        placeholder="Mensaje"
-                                        required
-                                    />
-                                </GridItem>
-                                <GridItem textAlign="center">
-                                    <div className="loading">Loading</div>
-                                    <div className="error-message"></div>
-                                    <div className="sent-message">
-                                        Your message has been sent. Thank you!
-                                    </div>
-
-                                    <Button type="submit">Enviar</Button>
-                                </GridItem>
-                            </Grid>
-                        </form>
-                    </GridItem>
-                </Grid>
-            </Container>
-        </Box>
-    );
+            </Flex>
+        </Container>
+    )
 }
-
-export default Contact;

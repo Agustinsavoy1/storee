@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Center, Button, Box, Flex } from '@chakra-ui/react'
+import { Center, Box, Button, Flex } from '@chakra-ui/react'
 import image1 from "../assets/banner.webp"
 import image2 from "../assets/banner2.webp"
 import image3 from "../assets/banner3.webp"
@@ -33,15 +33,25 @@ const BestSellers = () => {
         };
     }, []);
     return (
-        <Center h="full" bg="gray.100">
-            <Box>
+        <Center h={{ base: "50vh", md: "70vh" }} bg="gray.100">
+            <Box w={{ base: "90%", md: "80%" }} position="relative" >
                 <img
+
                     src={images[currentIndex]}
                     alt={`Image ${currentIndex + 1}`}
                     style={{ maxWidth: "100%" }}
                 />
-                <Box position={"absolute"} top={"30%"} mt={4}>
-                    <Flex marginLeft={"5rem"} justify={"space-between"} align={"center"} width={"90vw"}>
+                <Box
+                    position="absolute"
+                    top={{ base: "30%", md: "auto" }}
+                    mt={{ base: 4, md: 0 }}
+                >
+                    <Flex
+                        marginLeft={{ base: "1rem", md: "5rem" }}
+                        justify={{ base: "space-between", md: "flex-start" }}
+                        align="center"
+                        width="100%"
+                    >
                         <Button onClick={goToPrev} mr={2} variant="outline">
                             Previous
                         </Button>
