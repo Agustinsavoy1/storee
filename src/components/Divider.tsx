@@ -11,8 +11,8 @@ function Divider() {
         mt={{ base: 4, md: 8 }}
         mb={{ base: 4, md: 8 }}>
         <GridItem>
-          <Flex justify={'space-around'} align={'center'} p={4} border='1px solid #ccc'>
-            <Flex direction={'column'}>
+          <Flex justify='space-around' align='center' p={4} border='1px solid #ccc'>
+            <Flex direction='column'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 Tarjeta de Credito
               </Text>
@@ -23,8 +23,8 @@ function Divider() {
           </Flex>
         </GridItem>
         <GridItem>
-          <Flex justify={'space-around'} align={'center'} p={4} border='1px solid #ccc'>
-            <Flex direction={'column'}>
+          <Flex justify='space-around' align='center' p={4} border='1px solid #ccc'>
+            <Flex direction='column'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 Tarjeta de Debito
               </Text>
@@ -35,8 +35,8 @@ function Divider() {
           </Flex>
         </GridItem>
         <GridItem>
-          <Flex justify={'space-around'} align={'center'} p={4} border='1px solid #ccc'>
-            <Flex direction={'column'}>
+          <Flex justify='space-around' align='center' p={4} border='1px solid #ccc'>
+            <Flex direction='column'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 Envios a domicilio
               </Text>
@@ -47,8 +47,8 @@ function Divider() {
           </Flex>
         </GridItem>
         <GridItem>
-          <Flex justify={'space-around'} align={'center'} p={4} border='1px solid #ccc'>
-            <Flex direction={'column'}>
+          <Flex justify='space-around' align='center' p={4} border='1px solid #ccc'>
+            <Flex direction='column'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 Efectivo
               </Text>

@@ -1,15 +1,16 @@
 import { Box, Container, Flex, Heading, Text, Button, Image } from '@chakra-ui/react';
-import aboutImage from '../assets/about/about.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+
+import aboutImage from '../assets/about/about.jpg';
 
 function AboutSection() {
   useEffect(() => {
     AOS.init();
   }, []);
   return (
-    <Flex height={'76.5vh'} minWidth={'full'} background={'red'} align='center' justify='center'>
+    <Flex height='76.5vh' minWidth='full' background='red' align='center' justify='center'>
       <Container maxW='container.lg'>
         <Flex direction={{ base: 'column', lg: 'row' }} alignItems={{ lg: 'center' }}>
           <Box flex={{ base: '1', lg: '0.5' }} data-aos='fade-up' data-aos-delay='200'>
@@ -28,7 +29,7 @@ function AboutSection() {
               <Flex justify={{ base: 'center', lg: 'flex-start' }}>
                 <Button variant='link' color='cyan.600'>
                   <span>Read More</span>
-                  <i className='bi bi-arrow-right'></i>
+                  <i className='bi bi-arrow-right' />
                 </Button>
               </Flex>
             </Box>

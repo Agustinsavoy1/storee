@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Store from './pages/Store';
 import About from './pages/About';
 import Footer from './components/Footer';
-//import { Navbar } from "./components/Navbar";
+// import { Navbar } from "./components/Navbar";
 
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
 import Contact from './pages/Contact';
@@ -15,7 +15,7 @@ function App() {
     <ShoppingCartProvider>
       <Navbar2 />
 
-      <Flex justifyContent={'center'}>
+      <Flex justifyContent='center'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/store' element={<Store />} />

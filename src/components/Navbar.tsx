@@ -7,7 +7,7 @@ export function Navbar() {
   const { openCart, cartQuantity } = useShoppingCart();
 
   return (
-    <Flex as='nav' boxShadow='sm' align='center' justify='center' top='0' height={'15vh'} backgroundColor='cyan.600'>
+    <Flex as='nav' boxShadow='sm' align='center' justify='center' top='0' height='15vh' backgroundColor='cyan.600'>
       <Flex maxW='container.lg' direction='row' gap='1rem'>
         <Flex boxSize='5.25rem'>
           <Image src={navlogo} alt='logo' />

@@ -18,8 +18,10 @@ import {
   FormLabel,
   Flex,
 } from '@chakra-ui/react';
+// eslint-disable-next-line import/no-cycle
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
+// eslint-disable-next-line import/no-cycle
 import { CartItem } from './CartItem';
 
 type ShoppingCartProps = {
@@ -56,9 +58,20 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     }));
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const parseData = (data: string): Promise<ApiResponseData[]> => {
+    return new Promise<ApiResponseData[]>((resolve, reject) => {
+      Papa.parse(data, {
+        header: true,
+        complete: results => {
+          const parsedResultsData = results.data as ApiResponseData[];
+          resolve(parsedResultsData);
+        },
+        error: (error: Error) => {
+          reject(error.message);
+        },
+      });
+    });
+  };
 
   const fetchData = async () => {
     try {
@@ -76,20 +89,10 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     }
   };
 
-  const parseData = (data: string): Promise<ApiResponseData[]> => {
-    return new Promise<ApiResponseData[]>((resolve, reject) => {
-      Papa.parse(data, {
-        header: true,
-        complete: results => {
-          const parsedData = results.data as ApiResponseData[];
-          resolve(parsedData);
-        },
-        error: (error: Error) => {
-          reject(error.message);
-        },
-      });
-    });
-  };
+  useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const matchedCartItems = cartItems.map(cartItem => {
     const item = parsedData.find(i => i.id === cartItem.id);
@@ -97,13 +100,13 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   });
 
   const totalPrice = matchedCartItems.reduce((total, cartItem) => {
-    const item = cartItem.item;
+    const { item } = cartItem;
     return total + (item?.precio || 0) * cartItem.quantity;
   }, 0);
 
   const productList = matchedCartItems.reduce((result, cartItem) => {
     const itemText = `* ${cartItem.quantity} x ${cartItem.item?.nombre}`;
-    return result + itemText + '\n';
+    return `${result + itemText}\n`;
   }, '');
 
   const clientData = `* ${formData.name} x ${formData.address}\n* Checkbox Value: ${
@@ -119,7 +122,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
 
         <DrawerBody>
           {step === 1 && (
-            <Stack spacing={3} height={'100vh'}>
+            <Stack spacing={3} height='100vh'>
               {matchedCartItems.map(cartItem => (
                 <CartItem key={cartItem.id} {...cartItem} />
               ))}
@@ -173,7 +176,10 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
                 target='_blank'
                 rel='noopener noreferrer'
                 href={`https://wa.me/5491136307931?text=${encodeURIComponent(
-                  'Lista: \n' + productList + '\n' + clientData + '\n' + '\n' + 'Total: ' + formatCurrency(totalPrice)
+                  `Lista: 
+              ${productList}
+              ${clientData}
+              Total: ${formatCurrency(totalPrice)}`
                 )}`}>
                 <Button onClick={closeCart}>Enviar pedido</Button>
               </a>

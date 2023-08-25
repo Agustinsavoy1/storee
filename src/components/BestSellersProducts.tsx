@@ -31,10 +31,20 @@ const BestSellersProducts = () => {
     return item.type === 'masvendidos';
   });
 
-  useEffect(() => {
-    AOS.init();
-    get();
-  }, []);
+  const parseData = (data: string): Promise<ApiResponseData[]> => {
+    return new Promise<ApiResponseData[]>((resolve, reject) => {
+      Papa.parse(data, {
+        header: true,
+        complete: results => {
+          const parsedResultsData = results.data as ApiResponseData[];
+          resolve(parsedResultsData);
+        },
+        error: (error: Error) => {
+          reject(error.message);
+        },
+      });
+    });
+  };
 
   const get = async () => {
     try {
@@ -54,24 +64,15 @@ const BestSellersProducts = () => {
     }
   };
 
-  const parseData = (data: string): Promise<ApiResponseData[]> => {
-    return new Promise<ApiResponseData[]>((resolve, reject) => {
-      Papa.parse(data, {
-        header: true,
-        complete: results => {
-          const parsedData = results.data as ApiResponseData[];
-          resolve(parsedData);
-        },
-        error: (error: Error) => {
-          reject(error.message);
-        },
-      });
-    });
-  };
+  useEffect(() => {
+    AOS.init();
+    get();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <Flex direction={'column'}>
-      <Heading marginLeft={'6vw'} as='h2'>
+    <Flex direction='column'>
+      <Heading marginLeft='6vw' as='h2'>
         Mas vendidos
       </Heading>
       <Grid templateColumns={{ base: '1fr', md: 'repeat(4, 1fr)' }} gap={4} width='80%' margin='auto' mt={8} mb={8}>

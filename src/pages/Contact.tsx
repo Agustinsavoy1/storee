@@ -22,7 +22,7 @@ import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 
 export default function Contact() {
   return (
-    <Container bg={'red'} minH={'full'} maxW='full' minW={'full'} centerContent overflow='hidden'>
+    <Container bg='red' minH='full' maxW='full' minW='full' centerContent overflow='hidden'>
       <Flex>
         <Box
           bg='#02054B'
@@ -30,7 +30,7 @@ export default function Contact() {
           borderRadius='lg'
           m={{ base: 4, sm: 4, md: 16, lg: 10 }}
           p={{ base: 5, sm: 5, md: 5, lg: 10 }}>
-          <Box p={2} display={'flex'} flexDirection={'row-reverse'}>
+          <Box p={2} display='flex' flexDirection='row-reverse'>
             <Wrap
               direction={{ base: 'column', sm: 'column', md: 'row' }}
               justify={{ base: 'center' }}
@@ -80,7 +80,7 @@ export default function Contact() {
                       aria-label='facebook'
                       variant='ghost'
                       size='lg'
-                      isRound={true}
+                      isRound
                       _hover={{ bg: '#0D74FF' }}
                       icon={<MdFacebook size='28px' />}
                     />
@@ -88,7 +88,7 @@ export default function Contact() {
                       aria-label='github'
                       variant='ghost'
                       size='lg'
-                      isRound={true}
+                      isRound
                       _hover={{ bg: '#0D74FF' }}
                       icon={<BsGithub size='28px' />}
                     />
@@ -96,7 +96,7 @@ export default function Contact() {
                       aria-label='discord'
                       variant='ghost'
                       size='lg'
-                      isRound={true}
+                      isRound
                       _hover={{ bg: '#0D74FF' }}
                       icon={<BsDiscord size='28px' />}
                     />

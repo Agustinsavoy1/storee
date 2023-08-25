@@ -15,17 +15,17 @@ export function StoreItem({ id, nombre, precio, url_foto }: StoreItemProps) {
 
   return (
     <Flex
-      direction={'row-reverse'}
+      direction='row-reverse'
       borderWidth='1px'
       borderRadius='lg'
       overflow='hidden'
-      justify={'center'}
+      justify='center'
       w='20rem'
-      alignItems={'center'}>
+      alignItems='center'>
       <Image src={url_foto} alt={nombre} maxW='50%' borderRadius='20px' objectFit='cover' />
 
-      <Box p={'4'}>
-        <Flex direction={'column'} justifyContent={'center'} alignItems='baseline' mb='2'>
+      <Box p='4'>
+        <Flex direction='column' justifyContent='center' alignItems='baseline' mb='2'>
           <Text fontSize='lg' fontWeight='semibold'>
             {nombre}
           </Text>
