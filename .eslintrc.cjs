@@ -1,18 +1,12 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
+  extends: ['plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended'],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
   },
 };
 module.exports = {
@@ -47,12 +41,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:react/jsx-runtime',
   ],
-  plugins: [
-    'react',
-    'react-refresh',
-    '@typescript-eslint',
-    'prettier',
-  ],
+  plugins: ['react', 'react-refresh', '@typescript-eslint', 'prettier'],
   settings: {
     react: {
       version: 'detect',
@@ -72,10 +61,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',

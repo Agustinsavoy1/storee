@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import axios, { AxiosResponse } from "axios";
-import Papa from "papaparse";
+import { useState, useEffect } from 'react';
+import axios, { AxiosResponse } from 'axios';
+import Papa from 'papaparse';
 import {
   Button,
   Drawer,
@@ -17,10 +17,10 @@ import {
   FormControl,
   FormLabel,
   Flex,
-} from "@chakra-ui/react";
-import { useShoppingCart } from "../context/ShoppingCartContext";
-import { formatCurrency } from "../utilities/formatCurrency";
-import { CartItem } from "./CartItem";
+} from '@chakra-ui/react';
+import { useShoppingCart } from '../context/ShoppingCartContext';
+import { formatCurrency } from '../utilities/formatCurrency';
+import { CartItem } from './CartItem';
 
 type ShoppingCartProps = {
   isOpen: boolean;
@@ -40,17 +40,17 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const [parsedData, setParsedData] = useState<ApiResponseData[]>([]);
 
   const [formData, setFormData] = useState({
-    name: "",
-    address: "",
+    name: '',
+    address: '',
     checkboxValue: false,
-    comments: "",
+    comments: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
-    const inputValue = type === "checkbox" ? checked : value;
+    const inputValue = type === 'checkbox' ? checked : value;
 
-    setFormData((prevData) => ({
+    setFormData(prevData => ({
       ...prevData,
       [name]: inputValue,
     }));
@@ -63,16 +63,16 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const fetchData = async () => {
     try {
       const response: AxiosResponse = await axios.get(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWfThl1orWa1Uxn6Mzr_qn2ezQSosCGLIRA84JkTrczj_zHkYExNITCDo9x8s9GXc942WM--JPh67A/pub?output=csv",
+        'https://docs.google.com/spreadsheets/d/e/2PACX-1vTWfThl1orWa1Uxn6Mzr_qn2ezQSosCGLIRA84JkTrczj_zHkYExNITCDo9x8s9GXc942WM--JPh67A/pub?output=csv',
         {
-          responseType: "text",
+          responseType: 'text',
         }
       );
 
       const results = await parseData(response.data);
       setParsedData(results);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error('Error fetching data:', error);
     }
   };
 
@@ -80,7 +80,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     return new Promise<ApiResponseData[]>((resolve, reject) => {
       Papa.parse(data, {
         header: true,
-        complete: (results) => {
+        complete: results => {
           const parsedData = results.data as ApiResponseData[];
           resolve(parsedData);
         },
@@ -91,8 +91,8 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     });
   };
 
-  const matchedCartItems = cartItems.map((cartItem) => {
-    const item = parsedData.find((i) => i.id === cartItem.id);
+  const matchedCartItems = cartItems.map(cartItem => {
+    const item = parsedData.find(i => i.id === cartItem.id);
     return { ...cartItem, item };
   });
 
@@ -103,14 +103,15 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
 
   const productList = matchedCartItems.reduce((result, cartItem) => {
     const itemText = `* ${cartItem.quantity} x ${cartItem.item?.nombre}`;
-    return result + itemText + "\n";
-  }, "");
+    return result + itemText + '\n';
+  }, '');
 
-  const clientData = `* ${formData.name} x ${formData.address}\n* Checkbox Value: ${formData.checkboxValue ? "Yes" : "No"
-    }\n* Comments: ${formData.comments}\n`;
+  const clientData = `* ${formData.name} x ${formData.address}\n* Checkbox Value: ${
+    formData.checkboxValue ? 'Yes' : 'No'
+  }\n* Comments: ${formData.comments}\n`;
 
   return (
-    <Drawer isOpen={isOpen} onClose={closeCart} placement="right">
+    <Drawer isOpen={isOpen} onClose={closeCart} placement='right'>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
@@ -118,14 +119,14 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
 
         <DrawerBody>
           {step === 1 && (
-            <Stack spacing={3} height={"100vh"}>
-              {matchedCartItems.map((cartItem) => (
+            <Stack spacing={3} height={'100vh'}>
+              {matchedCartItems.map(cartItem => (
                 <CartItem key={cartItem.id} {...cartItem} />
               ))}
 
               <Flex>
-                {" "}
-                <Text>Total {formatCurrency(totalPrice)}</Text>{" "}
+                {' '}
+                <Text>Total {formatCurrency(totalPrice)}</Text>{' '}
               </Flex>
             </Stack>
           )}
@@ -134,68 +135,50 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             <Stack spacing={3}>
               <FormControl>
                 <FormLabel>Nombre completo</FormLabel>
-                <Input
-                  placeholder="Nombre"
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
+                <Input placeholder='Nombre' type='text' name='name' value={formData.name} onChange={handleChange} />
               </FormControl>
 
               <FormControl>
                 <FormControl>
-                  <Checkbox
-                    name="checkboxValue"
-                    checked={formData.checkboxValue}
-                    onChange={handleChange}
-                  >
+                  <Checkbox name='checkboxValue' checked={formData.checkboxValue} onChange={handleChange}>
                     Retiro en sucursal
                   </Checkbox>
                 </FormControl>
                 <FormControl>
-                  <Checkbox
-                    name="checkboxValue"
-                    checked={formData.checkboxValue}
-                    onChange={handleChange}
-                  >
+                  <Checkbox name='checkboxValue' checked={formData.checkboxValue} onChange={handleChange}>
                     Envio a domicilio
                   </Checkbox>
                 </FormControl>
                 <FormLabel>Direccion de envio</FormLabel>
                 <Input
-                  placeholder="Direccion"
-                  type="text"
-                  name="address"
+                  placeholder='Direccion'
+                  type='text'
+                  name='address'
                   value={formData.address}
                   onChange={handleChange}
                 />
               </FormControl>
 
-
-
               <FormControl>
                 <FormLabel>Comentarios del pedido</FormLabel>
                 <Input
-                  placeholder="Comentarios"
-                  type="text"
-                  name="comments"
+                  placeholder='Comentarios'
+                  type='text'
+                  name='comments'
                   value={formData.comments}
                   onChange={handleChange}
                 />
               </FormControl>
               <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`https://wa.me/5491136307931?text=${encodeURIComponent("Lista: \n" + productList + "\n" + clientData + "\n" + "\n" + "Total: " + formatCurrency(totalPrice))}`}
-              >
-                <Button onClick={closeCart}  >Enviar pedido</Button>
+                target='_blank'
+                rel='noopener noreferrer'
+                href={`https://wa.me/5491136307931?text=${encodeURIComponent(
+                  'Lista: \n' + productList + '\n' + clientData + '\n' + '\n' + 'Total: ' + formatCurrency(totalPrice)
+                )}`}>
+                <Button onClick={closeCart}>Enviar pedido</Button>
               </a>
-
             </Stack>
           )}
-
-
         </DrawerBody>
 
         <DrawerFooter>
