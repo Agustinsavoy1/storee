@@ -10,7 +10,7 @@ function AboutSection() {
     AOS.init();
   }, []);
   return (
-    <Flex height='76.5vh' minWidth='full' background='red' align='center' justify='center'>
+    <Flex minHeight={"100vh"} minWidth='full' background='red' align='center' justify='center'>
       <Container maxW='container.lg'>
         <Flex direction={{ base: 'column', lg: 'row' }} alignItems={{ lg: 'center' }}>
           <Box flex={{ base: '1', lg: '0.5' }} data-aos='fade-up' data-aos-delay='200'>
