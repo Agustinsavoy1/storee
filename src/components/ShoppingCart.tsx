@@ -109,9 +109,8 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     return `${result + itemText}\n`;
   }, '');
 
-  const clientData = `* ${formData.name} x ${formData.address}\n* Checkbox Value: ${
-    formData.checkboxValue ? 'Yes' : 'No'
-  }\n* Comments: ${formData.comments}\n`;
+  const clientData = `* ${formData.name} x ${formData.address}\n* Checkbox Value: ${formData.checkboxValue ? 'Yes' : 'No'
+    }\n* Comments: ${formData.comments}\n`;
 
   return (
     <Drawer isOpen={isOpen} onClose={closeCart} placement='right'>
@@ -181,7 +180,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
               ${clientData}
               Total: ${formatCurrency(totalPrice)}`
                 )}`}>
-                <Button onClick={closeCart}>Enviar pedido</Button>
+                <Button bg='#019b59' onClick={closeCart}>Enviar pedido</Button>
               </a>
             </Stack>
           )}

@@ -26,12 +26,7 @@ function AboutSection() {
                 Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur
                 itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
               </Text>
-              <Flex justify={{ base: 'center', lg: 'flex-start' }}>
-                <Button variant='link' color='cyan.600'>
-                  <span>Read More</span>
-                  <i className='bi bi-arrow-right' />
-                </Button>
-              </Flex>
+
             </Box>
           </Box>
 
