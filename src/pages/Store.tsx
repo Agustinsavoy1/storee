@@ -118,7 +118,7 @@ export default function Store() {
                 <Flex>
                   <HamburgerIcon
                     margin={1}
-                    bg='yellow'
+                    bg='#1870ef'
                     fontSize='2rem'
                     cursor='pointer'
                     onClick={() => setView(false)}
@@ -128,7 +128,7 @@ export default function Store() {
                 <Flex>
                   <DragHandleIcon
                     margin={1}
-                    bg='yellow'
+                    bg='#1870ef'
                     fontSize='2rem'
                     cursor='pointer'
                     onClick={() => setView(true)}
@@ -146,22 +146,22 @@ export default function Store() {
             />
             <Wrap spacing={2}>
               <WrapItem>
-                <Button m={1} onClick={() => handleCategoryFilter('todos')}>
+                <Button bg='#1870ef' m={1} onClick={() => handleCategoryFilter('todos')}>
                   Todos
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button m={1} onClick={() => handleCategoryFilter('lacteos')}>
+                <Button bg='#1870ef' m={1} onClick={() => handleCategoryFilter('lacteos')}>
                   Lacteos
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button m={1} onClick={() => handleCategoryFilter('fiambres')}>
+                <Button bg='#1870ef' m={1} onClick={() => handleCategoryFilter('fiambres')}>
                   Fiambres
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button m={1} onClick={() => handleCategoryFilter('np')}>
+                <Button bg='#1870ef' m={1} onClick={() => handleCategoryFilter('np')}>
                   NP
                 </Button>
               </WrapItem>
