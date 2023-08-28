@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Heading, Text, Button, Image } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Text, Image } from '@chakra-ui/react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
