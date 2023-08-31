@@ -15,6 +15,7 @@ export function StoreItem({ id, nombre, precio, url_foto }: StoreItemProps) {
 
   return (
     <Flex
+      bg={"white"}
       direction='row-reverse'
       borderWidth='1px'
       borderRadius='lg'
@@ -36,7 +37,7 @@ export function StoreItem({ id, nombre, precio, url_foto }: StoreItemProps) {
 
         <Box mt='auto'>
           {quantity === 0 ? (
-            <Button w='100%' onClick={() => increaseCartQuantity(id)}>
+            <Button color={"white"} bg={"#803643"} w='100%' onClick={() => increaseCartQuantity(id)}>
               + Add To Cart
             </Button>
           ) : (

@@ -71,7 +71,7 @@ const BestSellersProducts = () => {
       <Grid templateColumns={{ base: '1fr', md: 'repeat(4, 1fr)' }} gap={4} width='80%' margin='auto' mt={8} mb={8}>
         {bestSellers.map(item => (
           <GridItem key={item.id}>
-            <Box p={4} border='1px solid #ccc' borderRadius='md'>
+            <Box bg={"white"} p={4} border='1px solid #ccc' borderRadius='md'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 {item.nombre}
               </Text>

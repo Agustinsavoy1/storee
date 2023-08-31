@@ -22,10 +22,10 @@ import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 
 export default function Contact() {
   return (
-    <Container bg='red' minH='full' maxW='full' minW='full' centerContent overflow='hidden'>
+    <Container minH='full' maxW='full' minW='full' centerContent overflow='hidden'>
       <Flex>
         <Box
-          bg='#02054B'
+          bg='#803643'
           color='white'
           borderRadius='lg'
           m={{ base: 4, sm: 4, md: 16, lg: 10 }}
@@ -76,15 +76,15 @@ export default function Contact() {
                     </VStack>
                   </Box>
                   <HStack mt={{ lg: 10, md: 10 }} spacing={5} px={5} alignItems='flex-start'>
-                    <IconButton
+                    <IconButton color='#bb9d54'
                       aria-label='facebook'
                       variant='ghost'
                       size='lg'
                       isRound
-                      _hover={{ bg: '#0D74FF' }}
+                      _hover={{ bg: 'white' }}
                       icon={<MdFacebook size='28px' />}
                     />
-                    <IconButton
+                    <IconButton color='gray.100'
                       aria-label='github'
                       variant='ghost'
                       size='lg'
@@ -92,7 +92,7 @@ export default function Contact() {
                       _hover={{ bg: '#0D74FF' }}
                       icon={<BsGithub size='28px' />}
                     />
-                    <IconButton
+                    <IconButton color='gray.100'
                       aria-label='discord'
                       variant='ghost'
                       size='lg'
@@ -136,7 +136,7 @@ export default function Contact() {
                         />
                       </FormControl>
                       <FormControl id='name' float='right'>
-                        <Button variant='solid' bg='#0D74FF' color='white' _hover={{}}>
+                        <Button variant='solid' bg='#bb9d54' color='white' _hover={{}}>
                           Send Message
                         </Button>
                       </FormControl>

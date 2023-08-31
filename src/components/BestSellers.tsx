@@ -32,7 +32,7 @@ const BestSellers = () => {
   }, []);
 
   return (
-    <Center h={{ base: '50vh', md: '70vh' }} bg='gray.100'>
+    <Center h={{ base: '50vh', md: '70vh' }}>
       <Box w={{ base: '90%', md: '80%' }} position='relative'>
         <img src={images[currentIndex]} alt={`${currentIndex + 1}`} style={{ maxWidth: '100%' }} />
         <Box position='absolute' top={{ base: '30%', md: 'auto' }} mt={{ base: 4, md: 0 }}>

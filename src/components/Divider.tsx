@@ -11,7 +11,7 @@ function Divider() {
         mt={{ base: 4, md: 8 }}
         mb={{ base: 4, md: 8 }}>
         <GridItem>
-          <Flex justify='space-around' align='center' p={4} border='1px solid #ccc'>
+          <Flex bg={"#bb9d54"} justify='space-around' align='center' p={4} border='1px solid #ccc'>
             <Flex direction='column'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 Paga con tarjeta

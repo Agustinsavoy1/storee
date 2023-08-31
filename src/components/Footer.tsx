@@ -27,7 +27,7 @@ const SocialButton = ({ children, label, href }: { children: ReactNode; label: s
 
 export default function SmallWithSocial() {
   return (
-    <Box bg={useColorModeValue('gray.50', 'gray.900')} color={useColorModeValue('gray.700', 'gray.200')}>
+    <Box bg={useColorModeValue('#803643', 'gray.900')} color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
         as={Stack}
         maxW='6xl'
