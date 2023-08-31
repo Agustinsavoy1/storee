@@ -113,7 +113,7 @@ export default function Store() {
           gap={{ base: '1rem', md: '2rem' }}
           minW='full'>
           <Flex justify='center' align='center' direction='column' width='full'>
-            <Flex direction={{ base: 'column', md: 'row' }} align={{ base: 'center', md: 'flex-start' }} width='full'>
+            {/* <Flex direction={{ base: 'column', md: 'row' }} align={{ base: 'center', md: 'flex-start' }} width='full'>
               <Flex w='full' justify='flex-end' flexDirection={{ base: 'row-reverse', md: 'row' }} gap='0.5rem'>
                 <Flex>
                   <HamburgerIcon
@@ -135,8 +135,9 @@ export default function Store() {
                   />
                 </Flex>
               </Flex>
-            </Flex>
+            </Flex> */}
             <Input
+              marginTop='1rem'
               marginBottom='1rem'
               width={{ base: '100%', md: '20%' }}
               type='text'
@@ -146,22 +147,22 @@ export default function Store() {
             />
             <Wrap spacing={2}>
               <WrapItem>
-                <Button bg='#1870ef' m={1} onClick={() => handleCategoryFilter('todos')}>
+                <Button color={"white"} bg={"#803643"} m={1} onClick={() => handleCategoryFilter('todos')}>
                   Todos
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button bg='#1870ef' m={1} onClick={() => handleCategoryFilter('lacteos')}>
+                <Button bg='blue.500' m={1} onClick={() => handleCategoryFilter('lacteos')}>
                   Lacteos
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button bg='#1870ef' m={1} onClick={() => handleCategoryFilter('fiambres')}>
+                <Button bg='blue.500' m={1} onClick={() => handleCategoryFilter('fiambres')}>
                   Fiambres
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button bg='#1870ef' m={1} onClick={() => handleCategoryFilter('np')}>
+                <Button bg='blue.500' m={1} onClick={() => handleCategoryFilter('np')}>
                   NP
                 </Button>
               </WrapItem>
@@ -175,7 +176,7 @@ export default function Store() {
             width='full'>
             {filteredData ? (
               filteredData.map(item => (
-                <Box data-aos='fade-up' key={item.id}>
+                <Box display={"flex"} justifyContent={"center"} data-aos='fade-up' key={item.id}>
                   <StoreItem {...item} />
                 </Box>
               ))

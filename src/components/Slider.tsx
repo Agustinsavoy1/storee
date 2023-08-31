@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Center, Button, Box, Flex } from '@chakra-ui/react';
-import image1 from '../assets/banner.webp';
+import image1 from '../assets/sliderpicada.png';
 import image2 from '../assets/banner2.webp';
 import image3 from '../assets/banner3.webp';
 
@@ -32,7 +32,7 @@ const Slider = () => {
   }, []);
 
   return (
-    <Center h={{ base: '50vh', md: '70vh' }} bg='gray.100'>
+    <Center h={{ base: '50vh', md: '70vh' }} >
       <Box w={{ base: '90%', md: '80%' }} position='relative'>
         <img src={images[currentIndex]} alt={`${currentIndex + 1}`} style={{ width: '100%', height: 'auto' }} />
         <Flex

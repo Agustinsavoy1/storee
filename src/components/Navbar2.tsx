@@ -45,7 +45,7 @@ export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { openCart, cartQuantity } = useShoppingCart();
   return (
-    <Box bg={useColorModeValue('#1b2b3a', 'red')} px={4}>
+    <Box boxShadow='lg' bg={useColorModeValue('#803643', 'red')} px={4}>
       <Flex h={16} alignItems='center' justifyContent='space-between'>
         <IconButton
           size='md'
