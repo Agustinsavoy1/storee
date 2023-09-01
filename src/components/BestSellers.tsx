@@ -41,10 +41,10 @@ const BestSellers = () => {
             justify={{ base: 'space-between', md: 'flex-start' }}
             align='center'
             width='100%'>
-            <Button onClick={goToPrev} mr={2} variant='outline'>
+            <Button color={"white"} bg={"#803643"} onClick={goToPrev} mr={2} variant='outline'>
               Previous
             </Button>
-            <Button onClick={goToNext} variant='outline'>
+            <Button color={"white"} bg={"#803643"} onClick={goToNext} variant='outline'>
               Next
             </Button>
           </Flex>

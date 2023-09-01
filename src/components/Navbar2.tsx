@@ -65,7 +65,7 @@ export default function Simple() {
                                 <NavLink key={link}>{link}</NavLink>
                             ))} */}
             <NavLink to='/'>
-              <Button color={"white"} >Home</Button>
+              <Button bg={"transparent"} color={"white"} >Home</Button>
             </NavLink>
             <NavLink to='/store'>
               <Button bg={"transparent"} color={"white"} >Store</Button>

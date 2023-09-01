@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Center, Button, Box, Flex } from '@chakra-ui/react';
-import image1 from '../assets/sliderpicada.png';
+import image1 from '../assets/banner.webp';
 import image2 from '../assets/banner2.webp';
 import image3 from '../assets/banner3.webp';
 
@@ -42,10 +42,10 @@ const Slider = () => {
           right='0'
           justify='space-between'
           px={{ base: '1rem', md: '2rem' }}>
-          <Button onClick={goToPrev} variant='outline'>
+          <Button color={"white"} bg={"#803643"} onClick={goToPrev} variant='outline'>
             Previous
           </Button>
-          <Button onClick={goToNext} variant='outline'>
+          <Button color={"white"} bg={"#803643"} onClick={goToNext} variant='outline'>
             Next
           </Button>
         </Flex>

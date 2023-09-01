@@ -22,7 +22,7 @@ function Divider() {
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 12V14M12 6H5C3.89543 6 3 6.89543 3 8V14M3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14M3 14H21M23 4L18 9L16 7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>     </Icon>     </Flex>
         </GridItem>
         <GridItem>
-          <Flex justify='space-around' align='center' p={4} border='1px solid #ccc'>
+          <Flex bg={"#bb9d54"} justify='space-around' align='center' p={4} border='1px solid #ccc'>
             <Flex direction='column'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 Compra segura
@@ -34,7 +34,7 @@ function Divider() {
           </Flex>
         </GridItem>
         <GridItem>
-          <Flex justify='space-around' align='center' p={4} border='1px solid #ccc'>
+          <Flex bg={"#bb9d54"} justify='space-around' align='center' p={4} border='1px solid #ccc'>
             <Flex direction='column'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 Paga en efectivo
@@ -46,7 +46,7 @@ function Divider() {
           </Flex>
         </GridItem>
         <GridItem>
-          <Flex justify='space-around' align='center' p={4} border='1px solid #ccc'>
+          <Flex bg={"#bb9d54"} justify='space-around' align='center' p={4} border='1px solid #ccc'>
             <Flex direction='column'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 Efectivo
