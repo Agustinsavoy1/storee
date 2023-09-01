@@ -36,7 +36,8 @@ export default function Contact() {
               justify={{ base: 'center' }}
               spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
               <WrapItem>
-                <Box>
+                <Box
+                >
                   <Heading>Contacto</Heading>
                   <Text mt={{ sm: 3, md: 3, lg: 5 }} color='gray.500'>
                     Envianos tu consulta
@@ -50,7 +51,7 @@ export default function Contact() {
                         variant='ghost'
                         color='#DCE2FF'
                         _hover={{ border: '2px solid #1C6FEB' }}
-                        leftIcon={<MdPhone color='#1970F1' size='20px' />}>
+                        leftIcon={<MdPhone color='#bb9d54' size='20px' />}>
                         +54 9 11 3333 3333
                       </Button>
                       <Button
@@ -60,17 +61,18 @@ export default function Contact() {
                         variant='ghost'
                         color='#DCE2FF'
                         _hover={{ border: '2px solid #1C6FEB' }}
-                        leftIcon={<MdEmail color='#1970F1' size='20px' />}>
+                        leftIcon={<MdEmail color='#bb9d54' size='20px' />}>
                         losincas@losincas.com
                       </Button>
                       <Button
+
                         size='md'
                         height='48px'
                         width='200px'
                         variant='ghost'
                         color='#DCE2FF'
                         _hover={{ border: '2px solid #1C6FEB' }}
-                        leftIcon={<MdLocationOn color='#1970F1' size='20px' />}>
+                        leftIcon={<MdLocationOn color='#bb9d54' size='20px' />}>
                         Buenos Aires, Argentina.
                       </Button>
                     </VStack>
@@ -84,7 +86,7 @@ export default function Contact() {
                       _hover={{ bg: 'white' }}
                       icon={<MdFacebook size='28px' />}
                     />
-                    <IconButton color='gray.100'
+                    <IconButton color='#bb9d54'
                       aria-label='github'
                       variant='ghost'
                       size='lg'
@@ -92,7 +94,7 @@ export default function Contact() {
                       _hover={{ bg: '#0D74FF' }}
                       icon={<BsGithub size='28px' />}
                     />
-                    <IconButton color='gray.100'
+                    <IconButton color='#bb9d54'
                       aria-label='discord'
                       variant='ghost'
                       size='lg'

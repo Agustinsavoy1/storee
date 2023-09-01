@@ -46,10 +46,12 @@ export default function Simple() {
   const { openCart, cartQuantity } = useShoppingCart();
   return (
     <Box boxShadow='lg' bg={useColorModeValue('#803643', 'red')} px={4}>
-      <Flex h={16} alignItems='center' justifyContent='space-between'>
+      <Flex h={16} alignItems='center' justifyContent='space-between' >
         <IconButton
+
+          bg={"white"}
           size='md'
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          icon={isOpen ? <CloseIcon color={"black"} /> : <HamburgerIcon color={"black"} />}
           aria-label='Open Menu'
           display={{ md: 'none' }}
           onClick={isOpen ? onClose : onOpen}
@@ -63,7 +65,7 @@ export default function Simple() {
                                 <NavLink key={link}>{link}</NavLink>
                             ))} */}
             <NavLink to='/'>
-              <Button bg={"transparent"} color={"white"} >Home</Button>
+              <Button color={"white"} >Home</Button>
             </NavLink>
             <NavLink to='/store'>
               <Button bg={"transparent"} color={"white"} >Store</Button>

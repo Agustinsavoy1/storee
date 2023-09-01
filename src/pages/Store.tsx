@@ -152,17 +152,17 @@ export default function Store() {
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button bg='blue.500' m={1} onClick={() => handleCategoryFilter('lacteos')}>
+                <Button color={"white"} bg={"#803643"} m={1} onClick={() => handleCategoryFilter('lacteos')}>
                   Lacteos
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button bg='blue.500' m={1} onClick={() => handleCategoryFilter('fiambres')}>
+                <Button color={"white"} bg={"#803643"} m={1} onClick={() => handleCategoryFilter('fiambres')}>
                   Fiambres
                 </Button>
               </WrapItem>
               <WrapItem>
-                <Button bg='blue.500' m={1} onClick={() => handleCategoryFilter('np')}>
+                <Button color={"white"} bg={"#803643"} m={1} onClick={() => handleCategoryFilter('np')}>
                   NP
                 </Button>
               </WrapItem>
