@@ -13,6 +13,7 @@ export function StoreItem({ id, nombre, precio, url_foto }: StoreItemProps) {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart();
   const quantity = getItemQuantity(id);
 
+
   return (
     <Flex
       bg={"white"}

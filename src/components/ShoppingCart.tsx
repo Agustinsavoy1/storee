@@ -22,7 +22,7 @@ import {
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
 // eslint-disable-next-line import/no-cycle
-import { CartItem } from './CartItem';
+import { CartItem } from './CartItem.1';
 
 type ShoppingCartProps = {
   isOpen: boolean;

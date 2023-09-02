@@ -104,14 +104,15 @@ export default function Store() {
   });
 
   return (
-    <Box width='100%'>
+    <Box h={"full"} width='100%' >
       {view === true ? (
         <Flex
           direction={{ base: 'column', md: 'column' }}
           justifyContent={{ base: 'center', md: 'space-between' }}
           alignItems={{ base: 'center', md: 'flex-start' }}
           gap={{ base: '1rem', md: '2rem' }}
-          minW='full'>
+          minW='full'
+          minH={"100vh"}>
           <Flex justify='center' align='center' direction='column' width='full'>
             {/* <Flex direction={{ base: 'column', md: 'row' }} align={{ base: 'center', md: 'flex-start' }} width='full'>
               <Flex w='full' justify='flex-end' flexDirection={{ base: 'row-reverse', md: 'row' }} gap='0.5rem'>

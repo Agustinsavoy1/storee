@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
-// eslint-disable-next-line import/no-cycle
+
 import { ShoppingCart } from '../components/ShoppingCart';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
@@ -25,7 +25,7 @@ type IShoppingCartContext = {
 
 const ShoppingCartContext = createContext({} as IShoppingCartContext);
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export function useShoppingCart() {
   return useContext(ShoppingCartContext);
 }
@@ -118,10 +118,13 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     [setCartItems]
   );
 
-  const removeFromCart = useCallback(
-    (id: number) => setCartItems((currItems: CartItem[]) => currItems.filter(item => item.id !== id)),
-    [setCartItems]
-  );
+  function removeFromCart(id: number) {
+
+    setCartItems(currItems => {
+      console.log(currItems)
+      return currItems.filter(item => item.id !== id)
+    })
+  }
 
   const contextValue = useMemo(
     () => ({

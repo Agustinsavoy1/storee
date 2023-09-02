@@ -1,5 +1,5 @@
 import { Button, Flex, Text, Image } from '@chakra-ui/react';
-// eslint-disable-next-line import/no-cycle
+
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { formatCurrency } from '../utilities/formatCurrency';
 import { ApiResponseData } from './ShoppingCart'; // Import the ApiResponseData type
@@ -12,6 +12,7 @@ type CartItemProps = {
 
 export function CartItem({ id, quantity, item }: CartItemProps) {
   const { removeFromCart } = useShoppingCart();
+
 
   if (!item) return null;
 
