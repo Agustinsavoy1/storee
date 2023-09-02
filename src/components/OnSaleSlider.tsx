@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Flex, Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios';
@@ -71,12 +71,15 @@ const BestSellersProducts = () => {
       <Grid templateColumns={{ base: '1fr', md: 'repeat(4, 1fr)' }} gap={4} width='80%' margin='auto' mt={8} mb={8}>
         {bestSellers.map(item => (
           <GridItem key={item.id}>
-            <Box bg={"white"} p={4} border='1px solid #ccc' borderRadius='md'>
+            <Box display={"flex"} flexDirection={"column"} bg={"white"} p={4} border='1px solid #ccc' borderRadius='md'>
               <Text fontSize='lg' fontWeight='bold' mb={2}>
                 {item.nombre}
               </Text>
               <Text mb={2}>{item.descripcion}</Text>
               <Image src={item.url_foto} alt={item.nombre} />
+              <Button color={"white"} bg={"#803643"} variant='outline'>
+                Comprar
+              </Button>
             </Box>
           </GridItem>
         ))}
